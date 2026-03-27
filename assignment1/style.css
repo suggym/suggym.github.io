@@ -1,18 +1,19 @@
 header {
-  background-color: #d38c8ec9;
+  background-color: #84b172e1;
   margin-top: -15px;
-  margin-left: -15px;
+  margin-left: 0px;
   margin-right: -15px;
-  padding: 15px;
-  font-size: 1.1rem;
+  margin-bottom: 0px;
+  padding: 10px;
+  font-size: 2rem;
   font-family: "Jersey 10", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
 }
 
 h1,
 h3 {
-  color: white;
+  color: #fafafa;
   font-family: "Jersey 10", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -29,7 +30,6 @@ nav {
 }
 
 body {
-  background-image: linear-gradient(to bottom, #ffcdb2, #ffb4a2, antiquewhite);
   font-family: "National Park", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -37,10 +37,10 @@ body {
 }
 
 .button {
-  background-color: #d38c8ebd;
+  background-color: #84b172e1;
   border: none;
   border-radius: 10px;
-  color: white;
+  color: #fafafa;
   padding: 15px 32px;
   text-align: center;
   display: inline-block;
@@ -54,4 +54,52 @@ body {
 
 li {
   margin-bottom: 30px;
+}
+
+footer {
+  background-color: #84b172e1;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  text-align: right;
+  padding: 2px;
+  font-size: 1rem;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.outer {
+  width: 400px;
+  border: 2px dashed #e5e5cb56;
+  border-radius: 15px;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px;
+}
+
+.limebox {
+  background-color: limegreen;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: #3c2a21;
+  padding: 10px;
+}
+
+.coralbox {
+  background-color: coral;
+  color: #3c2a21;
+  padding: 10px;
+}
+
+.plumbox {
+  background-color: plum;
+  color: #3c2a21;
+  padding: 10px;
 }
