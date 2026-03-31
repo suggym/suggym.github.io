@@ -28,9 +28,29 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
+#grid-container3 {
+  width: 1000px;
+  min-height: 600px;
+  padding: 20px;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+#grid-container4 {
+  width: 1000px;
+  min-height: 900px;
+  padding: 20px;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
 h1 {
   font-size: 1.5rem;
-  padding: 0px;
+  padding: 20px;
 }
 h2 {
   font-size: 4rem;
@@ -42,24 +62,27 @@ h3 {
   padding: 10px;
 }
 header {
-  margin: 10px;
+  margin: 0px;
 }
 
-nav {
-  margin: auto;
+article {
+  margin-bottom: 30px;
 }
 
 footer {
   margin: -5px;
   justify-content: end;
-  background-color: lime;
+  background-image: radial-gradient(
+    rgba(217, 69, 197, 0.168),
+    rgba(175, 139, 226, 0.347)
+  );
   text-align: right;
   padding: 10px;
 }
 
 body {
-  margin: auto;
   font-family: "Space Grotesk", sans-serif;
+  background-color: #0e0e0e;
 }
 
 .navbutton {
@@ -68,26 +91,13 @@ body {
 
 .navbutton:hover {
   opacity: 0.5;
+  text-decoration: underline;
 }
 /* above darkens clickable objects by lowering opacity by 50% using a class to make obvious to user that they are clickable*/
-#box1 {
-  background-color: limegreen;
+.box {
+  background-image: radial-gradient(rgb(217, 69, 197), rgb(175, 139, 226));
   border-radius: 15px;
 }
-#box2 {
-  background-color: purple;
-  border-radius: 15px;
-}
-#box3 {
-  background-color: aquamarine;
-  border-radius: 15px;
-}
-#box4 {
-  background-color: coral;
-  grid-column: 1/3;
-  grid-row: 2/5;
-}
-
 .currentnav {
   opacity: 0.5;
 }
@@ -95,4 +105,20 @@ body {
 a {
   text-decoration: none;
   color: white;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 950px;
+  border-radius: 15px;
+  padding: 12px 12px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
