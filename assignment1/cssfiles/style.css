@@ -1,15 +1,15 @@
 .flexsection {
-  width: 1000px;
+  width: auto;
   min-height: 100px;
   display: flex;
   justify-content: flex-end;
   gap: 50px;
   padding-right: 20px;
-  padding-top: 0px;
 }
+/* Navigation bar flexbox section */
 
 #grid-container {
-  width: 1000px;
+  width: auto;
   min-height: 600px;
   padding: 20px;
   display: grid;
@@ -17,6 +17,7 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 10fr;
 }
+/* Landing page grid container */
 
 #grid-container2 {
   width: 400px;
@@ -27,9 +28,10 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
+/* Landing page grid for extra navigation buttons */
 
 #grid-container3 {
-  width: 1000px;
+  width: auto;
   min-height: 600px;
   padding: 20px;
   display: grid;
@@ -37,32 +39,30 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(6, 1fr);
 }
+/* Question page grid layout */
 
 #grid-container4 {
-  width: 1000px;
-  min-height: 900px;
+  width: auto;
   padding: 20px;
   display: grid;
-  gap: 0.5rem;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
 }
+/* Gallery Grid Layout */
 
 h1 {
   font-size: 1.5rem;
   padding: 20px;
 }
+
 h2 {
   font-size: 4rem;
-  padding: 10px;
+  padding: 20px;
 }
 
 h3 {
   font-size: 3rem;
-  padding: 10px;
-}
-header {
-  margin: 0px;
+  padding: 20px;
 }
 
 article {
@@ -70,8 +70,9 @@ article {
 }
 
 footer {
-  margin: -5px;
+  margin: auto;
   justify-content: end;
+  width: auto;
   background-image: radial-gradient(
     rgba(217, 69, 197, 0.168),
     rgba(175, 139, 226, 0.347)
@@ -79,10 +80,25 @@ footer {
   text-align: right;
   padding: 10px;
 }
+/* Footer formatting and styling */
 
 body {
   font-family: "Space Grotesk", sans-serif;
   background-color: #0e0e0e;
+}
+/* In graphic design usually you don't want to use pure black or pure white 
+for big blocks/shapes so I made it off-black. Was going to change the Space 
+Grotesk font but genuinely could not find another google font I liked more 
+for this specific style of website. I feel like it is modern enough to fit 
+the Luni vibe, it's very readable, and also has this geometric computer vibe,
+ which is perfect for a website dedicated to analysing another website. */
+
+p {
+  padding: 20px;
+}
+
+.answer {
+  font-style: italic;
 }
 
 .navbutton {
@@ -93,32 +109,34 @@ body {
   opacity: 0.5;
   text-decoration: underline;
 }
-/* above darkens clickable objects by lowering opacity by 50% using a class to make obvious to user that they are clickable*/
+/* above darkens clickable objects by lowering opacity by 50% on hover using 
+a class to make obvious to user that they are clickable, learnt off W3 schools
+ https://www.w3schools.com/css/css_image_transparency.asp */
+
 .box {
   background-image: radial-gradient(rgb(217, 69, 197), rgb(175, 139, 226));
   border-radius: 15px;
 }
+/* Styling box */
+
 .currentnav {
   opacity: 0.5;
 }
+/* currentnav class makes sure the user knows which page they are already on, 
+and is not a navigable button (as they are already on the page) */
 
 a {
   text-decoration: none;
   color: white;
 }
+/* Makes it so links are no longer blue and unerlined */
 
-.dropdown {
-  position: relative;
+#backtotop {
+  width: auto;
+  min-height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 50px;
+  padding-top: 0px;
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 950px;
-  border-radius: 15px;
-  padding: 12px 12px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+/* Flexbox formatting for back to top button */
