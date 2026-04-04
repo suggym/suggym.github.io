@@ -44,6 +44,7 @@
 #grid-container4 {
   width: auto;
   padding: 20px;
+  margin: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -62,23 +63,42 @@ h2 {
 
 h3 {
   font-size: 3rem;
-  padding: 20px;
+  padding: 30px;
+}
+
+header {
+  background-image: linear-gradient(
+    rgba(154, 208, 255, 0.748),
+    rgba(154, 208, 255, 0.241),
+    rgba(217, 69, 197, 0)
+  );
+  filter: blur(500%);
 }
 
 article {
   margin-bottom: 30px;
 }
 
+em {
+  font-weight: bold;
+}
+i {
+  font-style: italic;
+  font-size: 1rem;
+}
+
 footer {
   margin: auto;
   justify-content: end;
   width: auto;
-  background-image: radial-gradient(
-    rgba(217, 69, 197, 0.168),
-    rgba(175, 139, 226, 0.347)
+  background-image: linear-gradient(
+    rgba(217, 69, 197, 0),
+    rgba(154, 208, 255, 0.241),
+    rgba(154, 208, 255, 0.748)
   );
+  filter: blur(150%);
   text-align: right;
-  padding: 10px;
+  padding: 20px;
 }
 /* Footer formatting and styling */
 
@@ -95,6 +115,7 @@ the Luni vibe, it's very readable, and also has this geometric computer vibe,
 
 p {
   padding: 20px;
+  font-size: large;
 }
 
 .answer {
@@ -109,21 +130,34 @@ p {
   opacity: 0.5;
   text-decoration: underline;
 }
-/* above darkens clickable objects by lowering opacity by 50% on hover using 
-a class to make obvious to user that they are clickable, learnt off W3 schools
- https://www.w3schools.com/css/css_image_transparency.asp */
+/* above darkens clickable objects by lowering opacity by 50% on hover using a class to make obvious to user that they are clickable, learnt off W3 schools
+https://www.w3schools.com/css/css_image_transparency.asp */
 
 .box {
-  background-image: radial-gradient(rgb(217, 69, 197), rgb(175, 139, 226));
+  background-image: radial-gradient(
+    rgba(154, 208, 255, 0.748),
+    rgba(249, 149, 196, 0.671)
+  );
   border-radius: 15px;
+  filter: blur(150%);
+  filter: contrast(150%);
 }
-/* Styling box */
+
+.box2 {
+  background-image: linear-gradient(
+    rgba(249, 149, 196, 0.671),
+    rgba(154, 208, 255, 0.748)
+  );
+  border-radius: 15px;
+  filter: blur(150%);
+  filter: contrast(150%);
+}
+/* Styling boxes */
 
 .currentnav {
   opacity: 0.5;
 }
-/* currentnav class makes sure the user knows which page they are already on, 
-and is not a navigable button (as they are already on the page) */
+/* currentnav class makes sure the user knows which page they are already on, and is not a navigable button (as they are already on the page) */
 
 a {
   text-decoration: none;
@@ -140,3 +174,22 @@ a {
   padding-top: 0px;
 }
 /* Flexbox formatting for back to top button */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0e0e0eb0;
+  padding: 20px;
+  z-index: 999;
+  margin-top: -100px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+/* Dropdown on hover comments for the Luniverse image gallery to relate the images to the visuals of the website.
+I learnt this one off W3 Schools again: https://www.w3schools.com/css/css_dropdowns.asp */
