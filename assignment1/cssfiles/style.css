@@ -1,3 +1,5 @@
+/* I have tried to style this website in a way that makes it responsive in it's width, so if you are in a tab try shortening the width and everthing should still look ok :) */
+
 .flexsection {
   width: auto;
   min-height: 100px;
@@ -35,9 +37,9 @@
   min-height: 600px;
   padding: 20px;
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: 1fr;
 }
 /* Question page grid layout */
 
