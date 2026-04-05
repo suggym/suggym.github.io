@@ -39,7 +39,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 0fr;
 }
 /* Question page grid layout */
 
@@ -165,7 +165,7 @@ a {
   text-decoration: none;
   color: white;
 }
-/* Makes it so links are no longer blue and unerlined */
+/* Makes it so links are no longer blue and underlined */
 
 #backtotop {
   width: auto;
