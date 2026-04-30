@@ -48,6 +48,13 @@ body {
   background-color: hotpink;
 }
 
+#box7 {
+  background-color: rgb(105, 188, 255);
+}
+#box8 {
+  background-color: rgb(255, 105, 105);
+}
+
 h1 {
   font-weight: 800;
   font-size: 1.6rem;
