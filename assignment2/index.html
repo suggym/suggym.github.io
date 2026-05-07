@@ -3,8 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- add the font family of your choice -->
+    <title>lofistudy: home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -12,62 +23,77 @@
   <body>
     <!-- Header Section -->
     <header>
-      <h1>Media Player Website</h1>
+      <h1>l o f i - s t u d y</h1>
+      <h2>fresh beats to study to</h2>
     </header>
-
-    <!-- Navigation Section -->
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
-        <!-- Add or remove navigation items as needed -->
+        <li><a href="index.html">home</a></li>
+        <li><a href="music.html">music</a></li>
+        <li><a href="playlists.html">playlists</a></li>
+        <li><a href="about.html">about</a></li>
       </ul>
     </nav>
-
-    <!-- Main Content Section -->
-    <main class="container">
-      <!-- Media Player Section -->
       <div class="media-player">
-        <video id="custom-video-player" controls>
-          <source
-            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
-            type="video/mp4"
+      <audio id="custom-audio-player">
+        <source src="erokia.mp3" type="audio/mp3" />
+      </audio>
+    <!-- media player-->
+      <div class="custom-controls">
+        <button id="play-pause-btn">
+          <img
+            id="play-pause-img"
+            src="https://img.icons8.com/?size=100&id=5GnFrcQmc9iB&format=png&color=000000"
+            alt="Play Button"
+            width="24"
+            height="24"
           />
-        </video>
-        <div class="custom-controls">
-          <button id="play-pause-btn" onclick="togglePlayPause()">
-            <img
-              id="play-pause-img"
-              src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-              alt="Play Button"
-              width="24"
-              height="24"
-            />
-          </button>
-          <!-- add the missing buttons or functionality here -->
-          <div class="progress-bar">
-            <span id="progress-bar-fill"></span>
-          </div>
+
+        </button>
+         <div class="custom-controls">
+        <button id="muted-btn">
+          <img
+            id="muted-img"
+            src="https://img.icons8.com/?size=100&id=IlvXrZQW2plu&format=png&color=000000"
+            alt="Mute Button"
+            width="24"
+            height="24"
+          />
+        </button>
+
+        <div id="progress-bar">
+          <div id="progress-bar-fill"></div>
         </div>
       </div>
-
-      <!-- Additional Content Section -->
-      <section>
-        <h2>Additional Content</h2>
-        <p>This is where you can showcase any other relevant content.</p>
-        <!-- Add more content as needed -->
-      </section>
-    </main>
+    </div>
+    <!--background video-->
+    <video autoplay muted loop id="myVideo">
+      <source src="studyvid.mp4" type="video/mp4" />
+    </video>
+    <!-- Additional Content Section -->
+    <section>
+      <h2>Additional Content</h2>
+      <p>This is where you can showcase any other relevant content.</p>
+      <!-- Add more content as needed -->
+    </section>
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
+      <p>&copy; 2026 lofistudy. All rights reserved.</p>
       <a href="https://icons8.com/icon/59862/play">Play</a> icon by
       <a href="https://icons8.com">Icons8</a>
       <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
       <a href="https://icons8.com">Icons8</a>
+      Video by
+      <a
+        href="https://pixabay.com/users/mrbones03-33188032/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=270983"
+        >Shivaay Singh</a
+      >
+      from
+      <a
+        href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=270983"
+        >Pixabay</a
+      >
     </footer>
   </body>
 </html>

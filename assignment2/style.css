@@ -1,9 +1,9 @@
 :root {
-  --primary-bg-color: #f4f4f4;
-  --text-color: #333;
-  --main-bg-color: #333;
+  --primary-bg-color: #00000000;
+  --text-color: #f9fafc;
+  --main-bg-color: #00000099;
   --main-text-color: #fff;
-  --main-btn-bg-color: #938989;
+  --main-btn-bg-color: #93898900;
 }
 
 body,
@@ -15,7 +15,7 @@ ul {
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Elms Sans", sans-serif;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -38,25 +38,19 @@ body {
 header {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  padding: 10px 0;
-  text-align: center;
+  padding: 15px;
+  text-align: left;
+  font-size: 1.5rem;
   width: 100%;
 }
 
 /* Navigation styling */
 nav {
-  margin-top: 20px;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
-}
-
-nav ul li {
-  margin-right: 20px;
+  flex-direction: row;
+  margin-top: 0px;
+  justify-content: flex-end;
+  list-style: none;
 }
 
 nav a {
@@ -70,7 +64,7 @@ nav a {
   margin: 0 auto;
 }
 
-.media-player video {
+.media-player audio {
   max-width: 100%;
 }
 
@@ -94,6 +88,10 @@ nav a {
   align-items: center;
 }
 
+button:hover {
+  opacity: 0.5;
+}
+
 .progress-bar {
   width: 100%;
   height: 10px;
@@ -114,7 +112,17 @@ nav a {
 footer {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  text-align: center;
-  padding: 10px 0;
+  text-align: left;
+  padding: 15px;
+  font-size: 0.5rem;
   width: 100%;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -99;
 }
