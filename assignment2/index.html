@@ -24,65 +24,99 @@
     <!-- Header Section -->
     <header>
       <h1>l o f i - s t u d y</h1>
-      <h2>fresh beats to study to</h2>
+      <img
+        src="https://img.icons8.com/?size=100&id=veBrHUuf2tai&format=png&color=000000"
+        alt="Book"
+        height="20px"
+      />
     </header>
-    <nav>
-      <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="music.html">music</a></li>
-        <li><a href="playlists.html">playlists</a></li>
-        <li><a href="about.html">about</a></li>
-      </ul>
-    </nav>
-      <div class="media-player">
+    <!--study timer-->
+    <div class="timer">
+      <img
+        src="https://img.icons8.com/?size=100&id=655LnEUAFYvk&format=png&color=000000"
+        alt="Timer"
+        height="30px"
+      />
+      <p id="timer-display">25:00</p>
+
+      <button id="timer-start-btn">start</button>
+
+      <button id="timer-reset-btn">reset</button>
+    </div>
+    <!--album cover and skip song fucntions-->
+    <section>
+      <button class="body-btn" id="previous-song-btn">
+        <img
+          src="https://img.icons8.com/?size=100&id=1uR18UuFyYv6&format=png&color=000000"
+          alt="Previous Song"
+        />
+      </button>
+      <img id="album-cover" src="erokia.png" alt="Album Cover" height="400" />
+      <button class="body-btn" id="next-song-btn">
+        <img
+          src="https://img.icons8.com/?size=100&id=noGWilUx0lyp&format=png&color=000000"
+          alt="Next Song"
+        />
+      </button>
+    </section>
+    <!-- media player-->
+    <div class="media-player">
       <audio id="custom-audio-player">
         <source src="erokia.mp3" type="audio/mp3" />
       </audio>
-    <!-- media player-->
-      <div class="custom-controls">
-        <button id="play-pause-btn">
-          <img
-            id="play-pause-img"
-            src="https://img.icons8.com/?size=100&id=5GnFrcQmc9iB&format=png&color=000000"
-            alt="Play Button"
-            width="24"
-            height="24"
-          />
+      <!--buttons-->
+      <article>
+        <div class="custom-controls">
+          <button id="muted-btn">
+            <img
+              id="muted-img"
+              src="https://img.icons8.com/?size=100&id=IlvXrZQW2plu&format=png&color=000000"
+              alt="Mute Button"
+            />
+          </button>
 
-        </button>
-         <div class="custom-controls">
-        <button id="muted-btn">
-          <img
-            id="muted-img"
-            src="https://img.icons8.com/?size=100&id=IlvXrZQW2plu&format=png&color=000000"
-            alt="Mute Button"
-            width="24"
-            height="24"
-          />
-        </button>
+          <button id="play-pause-btn">
+            <img
+              id="play-pause-img"
+              src="https://img.icons8.com/?size=100&id=5GnFrcQmc9iB&format=png&color=000000"
+              alt="Play Button"
+            />
+          </button>
 
-        <div id="progress-bar">
-          <div id="progress-bar-fill"></div>
+          <div class="progress-bar">
+            <div id="progress-bar-fill"></div>
+          </div>
+
+          <h3 id="time-display">0:00 | 0:00</h3>
+
+          <button id="loop-btn">
+            <img
+              id="loop-img"
+              src="https://img.icons8.com/?size=100&id=N2IrhI7SMhXo&format=png&color=000000"
+              alt="Loop Button"
+            />
+          </button>
+
+          <button id="skip5sec-btn">
+            <img
+              id="skip5sec-img"
+              src="https://img.icons8.com/?size=100&id=nIBTzL6Add7v&format=png&color=000000"
+              alt="Skip Button"
+            />
+          </button>
         </div>
-      </div>
+      </article>
     </div>
+
     <!--background video-->
     <video autoplay muted loop id="myVideo">
-      <source src="studyvid.mp4" type="video/mp4" />
+      <source src="bgvideo.mp4" type="video/mp4" />
     </video>
-    <!-- Additional Content Section -->
-    <section>
-      <h2>Additional Content</h2>
-      <p>This is where you can showcase any other relevant content.</p>
-      <!-- Add more content as needed -->
-    </section>
 
     <!-- Footer Section -->
     <footer>
       <p>&copy; 2026 lofistudy. All rights reserved.</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
+      Icons by
       <a href="https://icons8.com">Icons8</a>
       Video by
       <a
