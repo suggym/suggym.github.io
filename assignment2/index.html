@@ -21,7 +21,7 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Header Section -->
+    <!-- Header Section- title of website + little book icon -->
     <header>
       <h1>l o f i - s t u d y</h1>
       <img
@@ -37,13 +37,15 @@
         alt="Timer"
         height="30px"
       />
+
+      <!--The Pomodoro Technique is a time management method that many people use for study developed in the late 1980s by Francesco Cirillo that boosts productivity by breaking work into 25-minute, highly focused intervals called "pomodoros," separated by 5-minute breaks. This is why the timer is set for 25min study intervals with a silent alert.-->
       <p id="timer-display">25:00</p>
 
       <button id="timer-start-btn">start</button>
 
       <button id="timer-reset-btn">reset</button>
     </div>
-    <!--album cover and skip song fucntions-->
+    <!--album cover and skip song fucntions- added in case they dislike or find distracting whatever is playing (can also use L/R arrow keys to skip song). Ideally in a more developed version of this the playlist would be much-->
     <section>
       <button class="body-btn" id="previous-song-btn">
         <img
@@ -64,7 +66,7 @@
       <audio id="custom-audio-player">
         <source src="erokia.mp3" type="audio/mp3" />
       </audio>
-      <!--buttons-->
+      <!--buttons: I have decided to include play pause, mute, display the current/full duration of song, skip/go back 10 sec and toggle loop as well as having it autoplay next. This is designed to give maximum control to the user, whilst still allowing hands off studying. -->
       <article>
         <div class="custom-controls">
           <button id="muted-btn">
@@ -97,10 +99,17 @@
             />
           </button>
 
+          <button id="back5sec-btn">
+            <img
+              id="back5sec-img"
+              src="https://img.icons8.com/?size=100&id=qDTzh8wHGeQ6&format=png&color=000000"
+              alt="Skip Button"
+            />
+          </button>
           <button id="skip5sec-btn">
             <img
               id="skip5sec-img"
-              src="https://img.icons8.com/?size=100&id=nIBTzL6Add7v&format=png&color=000000"
+              src="https://img.icons8.com/?size=100&id=FrBED5JqeqRF&format=png&color=000000"
               alt="Skip Button"
             />
           </button>
@@ -108,7 +117,7 @@
       </article>
     </div>
 
-    <!--background video-->
+    <!--background video: rain to calm and create a peaceful space-->
     <video autoplay muted loop id="myVideo">
       <source src="bgvideo.mp4" type="video/mp4" />
     </video>
@@ -116,16 +125,35 @@
     <!-- Footer Section -->
     <footer>
       <p>&copy; 2026 lofistudy. All rights reserved.</p>
-      Icons by
-      <a href="https://icons8.com">Icons8</a>
+      <p>Icons by <a href="https://icons8.com">Icons8</a></p>
       Video by
       <a
-        href="https://pixabay.com/users/mrbones03-33188032/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=270983"
-        >Shivaay Singh</a
+        href="https://pixabay.com/users/iconikmg-6316332/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=11722"
+        >Iconikmg</a
       >
       from
       <a
-        href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=270983"
+        href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=11722"
+        >Pixabay</a
+      >
+      Close by
+      <a
+        href="https://pixabay.com/users/soulprodmusic-30064790/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=123089"
+        >Oleg Fedak</a
+      >
+      from
+      <a
+        href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=123089"
+        >Pixabay</a
+      >
+      GoodNight by
+      <a
+        href="https://pixabay.com/users/fassounds-3433550/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=160166"
+        >FASSounds</a
+      >
+      from
+      <a
+        href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=160166"
         >Pixabay</a
       >
     </footer>

@@ -6,6 +6,8 @@
   --main-btn-bg-color: #93898900;
 }
 
+/* A lot of the assets I've added this 'liquid glass' effect to create very whimsical and relaxed styling, that still appears modern- perfect for study. This has been done mainly through "backdrop-filter: blur" based on this styling guide I found: https://medium.com/ekino-france/liquid-glass-in-css-and-svg-839985fcb88d */
+
 body,
 h1,
 p {
@@ -13,6 +15,7 @@ p {
   padding: 0;
 }
 
+/* main styling */
 body {
   font-family: "Elms Sans", sans-serif;
   background-color: var(--primary-bg-color);
@@ -30,7 +33,7 @@ body {
   padding: 10px;
 }
 
-/* Header styling */
+/* header styling */
 header {
   display: flex;
   align-items: center;
@@ -45,6 +48,7 @@ header {
   border: 0.5px solid rgba(255, 255, 255, 0.087);
 }
 
+/* text styling */
 h3 {
   font-size: 0.8rem;
 }
@@ -63,6 +67,7 @@ article {
   border-radius: 15px;
 }
 
+/* media buttons section styling */
 .custom-controls {
   display: flex;
   align-items: center;
@@ -71,6 +76,7 @@ article {
   width: 100%;
 }
 
+/* actual button styling */
 .custom-controls button {
   background-color: var(--main-btn-bg-color);
   color: var(--main-text-color);
@@ -82,6 +88,7 @@ article {
   max-height: 40px;
 }
 
+/* button hover styling */
 button:hover {
   opacity: 0.5;
 }
@@ -94,6 +101,7 @@ button:hover {
   width: 80px;
 }
 
+/* progress bar styling */
 .progress-bar {
   width: 120px;
   height: 10px;
@@ -124,21 +132,11 @@ footer {
   font-size: 0.5rem;
 }
 
+/* pomodoro timer styling */
 #time-display {
   white-space: nowrap;
   min-width: 70px;
   text-align: center;
-}
-
-#myVideo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -99;
-  opacity: 0.5;
 }
 
 .pomodoro-box {
@@ -149,13 +147,6 @@ footer {
 #timer-display {
   font-size: 2rem;
   margin: 10px;
-}
-
-section {
-  display: flex;
-  background-color: none;
-  border-radius: 15px;
-  border: 0.5px solid rgba(0, 0, 0, 0.087);
 }
 
 .timer {
@@ -187,4 +178,23 @@ section {
   padding: 10px;
   appearance: none;
   -webkit-appearance: none;
+}
+
+/* background video styling- I had to do some research to figure out how to get it to consistently cover the screen regardless of window size. This is done through 'object-fit:cover' */
+#myVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -99;
+  opacity: 0.5;
+}
+
+section {
+  display: flex;
+  background-color: none;
+  border-radius: 15px;
+  border: 0.5px solid rgba(0, 0, 0, 0.087);
 }

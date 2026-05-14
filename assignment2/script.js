@@ -4,11 +4,13 @@ const audio = document.querySelector("#custom-audio-player");
 const playPauseBtn = document.querySelector("#play-pause-btn");
 const mutedBtn = document.querySelector("#muted-btn");
 const skip5secBtn = document.querySelector("#skip5sec-btn");
+const back5secBtn = document.querySelector("#back5sec-btn");
 const loopBtn = document.querySelector("#loop-btn");
 const playPauseImg = document.querySelector("#play-pause-img");
 const mutedImg = document.querySelector("#muted-img");
 const loopImg = document.querySelector("#loop-img");
 const skip5secimg = document.querySelector("#skip5sec-img");
+const back5secimg = document.querySelector("#back5sec-img");
 
 //middle section QSs
 const albumCover = document.querySelector("#album-cover");
@@ -25,7 +27,7 @@ const timerDisplay = document.querySelector("#timer-display");
 const timerStartBtn = document.querySelector("#timer-start-btn");
 const timerResetBtn = document.querySelector("#timer-reset-btn");
 
-//more variables
+//more variables for auto-playing songs and the timer
 let currentSong = 0;
 let timerSeconds = 25 * 60;
 let timerInterval;
@@ -37,6 +39,7 @@ playPauseBtn.addEventListener("click", togglePlayPause);
 mutedBtn.addEventListener("click", toggleMute);
 loopBtn.addEventListener("click", toggleLoop);
 skip5secBtn.addEventListener("click", skip5sec);
+back5secBtn.addEventListener("click", back5sec);
 audio.addEventListener("timeupdate", updateProgressBar);
 nextSongBtn.addEventListener("click", nextSong);
 previousSongBtn.addEventListener("click", previousSong);
@@ -47,6 +50,114 @@ timerStartBtn.addEventListener("click", startPauseTimer);
 timerResetBtn.addEventListener("click", resetTimer);
 
 //functions
+
+// logic for clicking through the progress bar- the percentage of the bar clicked is calculated by clickPosition/width of the bar where the click position x is offset by where the bar is placed and the current time is changed to whatever that percantage is times the full length of the audio currently playing.
+function changeTime(event) {
+  const barWidth = progressBarContainer.clientWidth;
+
+  const clickPosition = event.offsetX;
+
+  const clickPercent = clickPosition / barWidth;
+
+  audio.currentTime = clickPercent * audio.duration;
+}
+
+// keybind logic put into 1 function because someone on the internet (i've lost the link :( ) told me it made life easier to have it all under one function.
+function keyFunction(event) {
+  if (event.code === "Space") {
+    event.preventDefault(); //prevents the default audio player reaction to the key being clicked
+    togglePlayPause();
+  }
+
+  if (event.code === "ArrowRight") {
+    event.preventDefault();
+    nextSong();
+  }
+
+  if (event.code === "ArrowLeft") {
+    event.preventDefault();
+    previousSong();
+  }
+}
+
+// skip/back 10 sec logic: intially had this as a 5 sec skip but ended up being too short and there was no icon for it so I changed it to 10sec.
+function skip5sec() {
+  audio.currentTime = audio.currentTime + 10;
+}
+
+function back5sec() {
+  audio.currentTime = audio.currentTime - 10;
+}
+
+//play pause toggle logic
+function togglePlayPause() {
+  if (audio.paused == true || audio.ended == true) {
+    audio.play();
+    playPauseImg.src =
+      "https://img.icons8.com/?size=100&id=Wf72tFY1MCeV&format=png&color=000000";
+  } else {
+    audio.pause();
+    playPauseImg.src =
+      "https://img.icons8.com/?size=100&id=5GnFrcQmc9iB&format=png&color=000000";
+  }
+}
+
+//mute toggle logic
+function toggleMute() {
+  if (audio.muted == true) {
+    audio.muted = false;
+    mutedImg.src =
+      "https://img.icons8.com/?size=100&id=IlvXrZQW2plu&format=png&color=000000";
+  } else {
+    audio.muted = true;
+    mutedImg.src =
+      "https://img.icons8.com/?size=100&id=K2qo7aCu72SI&format=png&color=000000";
+  }
+}
+
+//makes the loop button start faded to show that it is not currently looping
+loopBtn.style.opacity = "0.4";
+
+//loop toggle logic
+function toggleLoop() {
+  if (audio.loop == true) {
+    audio.loop = false;
+    loopImg.src =
+      "https://img.icons8.com/?size=100&id=N2IrhI7SMhXo&format=png&color=000000";
+    loopBtn.style.opacity = "0.4";
+  } else {
+    audio.loop = true;
+    loopBtn.style.opacity = "1";
+  }
+}
+
+// progress bar logic: learnt from example on canvas
+function updateProgressBar() {
+  if (!audio.duration) {
+    return;
+  }
+
+  // logic for duration showing nesxt to progress bar.
+  const value = (audio.currentTime / audio.duration) * 100;
+  progressBar.style.width = value + "%";
+
+  timeDisplay.textContent =
+    formatTime(audio.currentTime) + " | " + formatTime(audio.duration);
+}
+
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+
+  if (seconds < 10) {
+    return minutes + ":0" + seconds;
+  } else {
+    return minutes + ":" + seconds;
+  }
+}
+
+//logic behind timer- inspired by this YT tutorial: https://youtu.be/x7WJEmxNlEs?si=u5Jdq7vGMYUqLHyi with my own tweaks to add start and reset button
+
 function startPauseTimer() {
   if (timerRunning == false) {
     timerRunning = true;
@@ -97,98 +208,7 @@ function resetTimer() {
   updateTimerDisplay();
 }
 
-function changeTime(event) {
-  const barWidth = progressBarContainer.clientWidth;
-
-  const clickPosition = event.offsetX;
-
-  const clickPercent = clickPosition / barWidth;
-
-  audio.currentTime = clickPercent * audio.duration;
-}
-
-function keyFunction(event) {
-  if (event.code === "Space") {
-    event.preventDefault();
-    togglePlayPause();
-  }
-
-  if (event.code === "ArrowRight") {
-    nextSong();
-  }
-
-  if (event.code === "ArrowLeft") {
-    previousSong();
-  }
-}
-
-function skip5sec() {
-  audio.currentTime = audio.currentTime + 10;
-}
-
-function togglePlayPause() {
-  if (audio.paused == true || audio.ended == true) {
-    audio.play();
-    playPauseImg.src =
-      "https://img.icons8.com/?size=100&id=Wf72tFY1MCeV&format=png&color=000000";
-  } else {
-    audio.pause();
-    playPauseImg.src =
-      "https://img.icons8.com/?size=100&id=5GnFrcQmc9iB&format=png&color=000000";
-  }
-}
-
-function toggleMute() {
-  if (audio.muted == true) {
-    audio.muted = false;
-    mutedImg.src =
-      "https://img.icons8.com/?size=100&id=IlvXrZQW2plu&format=png&color=000000";
-  } else {
-    audio.muted = true;
-    mutedImg.src =
-      "https://img.icons8.com/?size=100&id=K2qo7aCu72SI&format=png&color=000000";
-  }
-}
-
-loopBtn.style.opacity = "0.4";
-
-function toggleLoop() {
-  if (audio.loop == true) {
-    audio.loop = false;
-    loopImg.src =
-      "https://img.icons8.com/?size=100&id=N2IrhI7SMhXo&format=png&color=000000";
-    loopBtn.style.opacity = "0.4";
-  } else {
-    audio.loop = true;
-    loopImg.src =
-      "https://img.icons8.com/?size=100&id=N2IrhI7SMhXo&format=png&color=000000";
-    loopBtn.style.opacity = "1";
-  }
-}
-
-function updateProgressBar() {
-  if (!audio.duration) {
-    return;
-  }
-
-  const value = (audio.currentTime / audio.duration) * 100;
-  progressBar.style.width = value + "%";
-
-  timeDisplay.textContent =
-    formatTime(audio.currentTime) + " | " + formatTime(audio.duration);
-}
-
-function formatTime(time) {
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60);
-
-  if (seconds < 10) {
-    return minutes + ":0" + seconds;
-  } else {
-    return minutes + ":" + seconds;
-  }
-}
-
+// song list container: if I wanted to add more songs I could drop the file and add it here :)
 const musicList = [
   {
     id: 1,
@@ -210,6 +230,7 @@ const musicList = [
   },
 ];
 
+//logic for skipping songs based on above IDs. changes cover, song and starts it from start in audio and on the progress bar.
 function chooseSong(songNumber) {
   audio.src = musicList[songNumber].src;
   albumCover.src = musicList[songNumber].cover;
@@ -217,6 +238,7 @@ function chooseSong(songNumber) {
   audio.play();
 }
 
+//go forward 1 song logic
 function nextSong() {
   currentSong = currentSong + 1;
 
@@ -227,6 +249,7 @@ function nextSong() {
   chooseSong(currentSong);
 }
 
+//go back 1 song logic
 function previousSong() {
   currentSong = currentSong - 1;
 
