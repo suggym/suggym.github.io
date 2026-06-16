@@ -1,85 +1,99 @@
-body {
-  background-color: #4e0545;
-  text-align: center;
-  margin: auto;
-  max-width: 1000px;
-  font-family: "Space Grotesk", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: #eeeeee;
-  font-size: 1.1rem;
-  gap: 1.5rem;
-}
-
-header {
-  justify-content: left;
-}
-
-/* ------- Basic setup --------------*/
-body {
-  background-color: #1a120b;
+.skin {
+  width: auto;
+  height: 550px;
+  margin: 25px;
+  margin-top: -250px;
   display: flex;
-  text-align: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  justify-content: space-around;
-  align-items: center;
-  font-family: "Space Grotesk", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: #e5e5cb;
-  /* color: #3c2a21; */
-  font-size: 1.1rem;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  /* overflow: hidden; */
+  justify-content: center;
 }
 
-h1 {
-  font-size: 4rem;
+.skinswatch {
+  margin: 10px;
 }
 
-h2 {
-  font-size: 1.4rem;
-  margin-top: 10px;
-}
-button {
-  background-color: #e5e5cb;
-  padding: 10px 20px;
-  font-size: 1.4rem;
-  border-radius: 12px;
-  border: none;
-  color: #3c2a21;
-  transition:
-    scale 0.4s ease,
-    background-color 0.4s ease;
-  cursor: pointer;
-}
-
-button:hover {
-  scale: 0.9;
-  background-color: #e5e5cb9c;
-}
-
-#button-container {
+.skinbutton {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  gap: 30px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.623);
-  /* width: 400px; */
-  padding: 30px;
+  margin: 100px;
 }
 
-div {
+.outfit-stack {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
-footer {
-  text-align: left;
-  padding: 20px;
-  font-size: 0.5rem;
+.outfit-stack img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%; /* Makes images scale together */
+  height: auto;
+}
+
+.hair {
+  width: 298px;
+  height: 421px;
+}
+
+.shoes {
+  width: 298px;
+  height: 421px;
+}
+
+.shoerack {
+  width: 200px;
+  height: 20px;
+  margin-left: -300px;
+}
+
+.shoebuttons {
+  margin-left: 220px;
+  width: 290px;
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.shirt {
+  width: 298px;
+  height: 421px;
+}
+
+.shirthang {
+  width: 298px;
+  height: 421px;
+  margin-left: -300px;
+}
+
+.shirtrack {
+  margin-left: 300px;
+  width: 150px;
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pants {
+  width: 298px;
+  height: 421px;
+}
+
+.pantsrack {
+  margin-left: 300px;
+  width: 150px;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pantshang {
+  width: 298px;
+  height: 421px;
+  margin-left: -300px;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
 }
