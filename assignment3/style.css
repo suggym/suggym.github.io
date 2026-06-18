@@ -1,9 +1,19 @@
+/*
+  The outfit uses layered images to create the final character. Each clothing category has the same width and height
+  so the images line up over the base character. The negative margins are used to stack the layers on top of each other.
+  It is not the cleanest layout method in the world, but for this prototype it works because the assets were designed
+  around the same character size.
+
+  I chose this layered approach because it makes the game easier to control. Instead of redrawing the whole outfit,
+  the code only swaps the image inside the matching layer. This keeps the interaction simple and makes the design feel
+  more responsive when the user drops a clothing item onto the character.
+*/
+
 .skin {
-  width: auto;
-  height: 550px;
-  margin: 25px;
+  width: 298px;
+  height: 421px;
+  margin: 400px;
   margin-top: -250px;
-  display: flex;
   justify-content: center;
 }
 
@@ -18,27 +28,33 @@
   margin: 100px;
 }
 
-.outfit-stack {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-
-.outfit-stack img {
-  grid-column: 1;
-  grid-row: 1;
-  width: 100%; /* Makes images scale together */
-  height: auto;
-}
-
 .hair {
   width: 298px;
   height: 421px;
+  margin: 400px;
+  margin-top: -820px;
 }
+
+/*
+  The rack items have their own sizing because the visible PNG and the actual clickable area are not always the same.
+  Some of the assets have transparent space around them, so I adjusted the divs and images separately to make the drag
+  area feel more natural. The outer div is the hitbox, while the image inside controls how large the item appears.
+
+  I also added hover and pulling animations so the clothes feel less usual. The small rotation, lift, and shadow are
+  meant to suggest that the item is being touched or pulled from the rack. This gives the interaction a bit more
+  personality without making it too distracting.
+
+  I am pretty sure the shoes don't work because I messed up the hitbox spacing due to their being too much 
+  transparent space in the png but they work in theory I swear :,) And they have a slightly different animation to match the shopes npot being on an actual rack.
+
+  I ended up deleting the skin and hair options due to time constraint.
+*/
 
 .shoes {
   width: 298px;
   height: 421px;
+  margin: 400px;
+  margin-top: -820px;
 }
 
 .shoerack {
@@ -49,8 +65,8 @@
 
 .shoebuttons {
   margin-left: 220px;
-  width: 290px;
-  height: 20px;
+  width: 300px;
+  height: 100px;
   display: flex;
   justify-content: space-around;
 }
@@ -58,18 +74,20 @@
 .shirt {
   width: 298px;
   height: 421px;
+  margin: 400px;
+  margin-top: -820px;
 }
 
 .shirthang {
-  width: 298px;
-  height: 421px;
+  width: 100px;
   margin-left: -300px;
 }
 
 .shirtrack {
+  margin-top: 150px;
   margin-left: 300px;
   width: 150px;
-  height: 20px;
+  height: 150px;
   display: flex;
   justify-content: space-around;
 }
@@ -77,23 +95,158 @@
 .pants {
   width: 298px;
   height: 421px;
+  margin: 400px;
+  margin-top: -822px;
 }
 
 .pantsrack {
   margin-left: 300px;
   width: 150px;
-  height: 300px;
+  height: 100px;
   display: flex;
   justify-content: space-around;
 }
 
 .pantshang {
-  width: 298px;
-  height: 421px;
+  width: 80px;
   margin-left: -300px;
 }
 
-.body {
-  display: flex;
-  flex-direction: row;
+body {
+  background-image: url("assets/bg.png");
+  font-family: "Patrick Hand", cursive;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.patrick-hand-regular {
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  padding: 20px;
+  font-size: 1.5rem;
+}
+main {
+  margin: 50px;
+  margin-left: 300px;
+  scale: 1.3;
+}
+
+section {
+  margin-top: -100px;
+  margin-left: 300px;
+}
+
+.shirthang,
+.pantshang,
+.shoerack {
+  cursor: grab;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+  transform-origin: top center;
+}
+
+.shirthang:hover,
+.pantshang:hover {
+  transform: rotate(-6deg) translateY(-8px) scale(1.05);
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.15));
+}
+
+.shoerack:hover {
+  transform: translateY(-20px) scale(1.05);
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.55));
+}
+
+/*
+  These z-index values keep the clothes visually layered on the rack in a logical way to match real life. Without a fixed order, hovering over an item can
+  make it jump in front of everything else, which looks weird when the rack is meant to feel like overlapping clothes.
+  I kept the order stable so the hover animation adds movement without breaking the illusion of depth.
+*/
+
+.shirthang:nth-child(1) {
+  z-index: 4;
+}
+
+.shirthang:nth-child(2) {
+  z-index: 3;
+}
+
+.shirthang:nth-child(3) {
+  z-index: 2;
+}
+
+.shirthang:nth-child(4) {
+  z-index: 1;
+}
+
+.pantshang:nth-child(1) {
+  z-index: 4;
+}
+
+.pantshang:nth-child(2) {
+  z-index: 3;
+}
+
+.pantshang:nth-child(3) {
+  z-index: 2;
+}
+
+.pantshang:nth-child(4) {
+  z-index: 1;
+}
+
+.shirthang:active,
+.pantshang:active {
+  cursor: grabbing;
+  animation: pullOffRack 0.25s ease forwards;
+}
+
+@keyframes pullOffRack {
+  0% {
+    transform: rotate(-2deg) translateY(-8px) scale(1.05);
+  }
+
+  50% {
+    transform: rotate(2deg) translateY(-15px) translateX(5px) scale(1.08);
+  }
+
+  100% {
+    transform: rotate(4deg) translateY(-25px) translateX(5px) scale(1.1);
+  }
+}
+
+.shirthang.is-pulling img,
+.pantshang.is-pulling img {
+  animation: tugResistance 0.45s ease-out forwards;
+}
+
+@keyframes tugResistance {
+  0% {
+    transform: rotate(0deg) translateY(0) translateX(0);
+  }
+
+  20% {
+    transform: translateY(1px) translateX(1px);
+  }
+
+  35% {
+    transform: translateY(1px) translateX(2px);
+  }
+
+  55% {
+    transform: translateY(0px) translateX(-1px);
+  }
+
+  70% {
+    transform: translateY(0px) translateX(-1px);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(10px);
+  }
 }

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Space+Grotesk&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="reset.css" />
@@ -15,90 +15,140 @@
     <script src="script.js" defer></script>
   </head>
   <header><h1>your digital closet</h1></header>
+  <!-- 
+  The clothing racks are separate from the character because I wanted the page to feel like a dress-up game with a somewhat real closet. Unfortunately I did not have enough time to create the rack asset but in a future development I would create that in the background to add an extra level of immersion. Each clothing item is draggable so the user has to physically move the item onto
+  the character, which makes the interaction feel more playful and closer to pulling clothes from a real closet.
+
+  I used data attributes on the draggable items because it keeps the HTML and JavaScript connected in a simple way.
+  The data-item tells the code whether the dragged object is a shirt, pants, or shoes, while data-image tells
+  the code which final outfit image should appear on the character so I create create "hanging" assets as well as the normal character assets. This means I do not need a separate function for
+  every single clothing option. The same drag-and-drop code works across all categories.
+-->
   <!--rack-->
-  <div class="shirtrack">
-    <div class="shirthang">
-      <img src="assets/shirt1hang.png" alt="Orange Crop" />
-    </div>
-    <div class="shirthang">
-      <img src="assets/shirt2hang.png" alt="Black Mesh Shirt" />
-    </div>
-    <div class="shirthang">
-      <img src="assets/shirt3hang.png" alt="Red Shirt" />
-    </div>
-    <div class="shirthang">
-      <img src="assets/shirt4hang.png" alt="Maroon Top" />
-    </div>
-    <div class="shirthang">
-      <img src="assets/shirt5hang.png" alt="Blue Top" />
-    </div>
-    <div class="shirthang">
-      <img src="assets/shirt6hang.png" alt="Red Crop" />
-    </div>
-  </div>
+  <section>
+    <div class="shirtrack">
+      <div
+        class="shirthang"
+        draggable="true"
+        data-item="shirt"
+        data-image="assets/shirt1.png"
+      >
+        <img src="assets/shirt1hang.png" alt="Orange Crop" />
+      </div>
 
-  <div class="pantsrack">
-    <div class="pantshang">
-      <img src="assets/pants1hang.png" alt="Black Jeans" />
-    </div>
-    <div class="pantshang">
-      <img src="assets/pants2hang.png" alt="Striped Pants" />
-    </div>
-    <div class="pantshang">
-      <img src="assets/pants3hang.png" alt="Biker shorts" />
-    </div>
-    <div class="pantshang">
-      <img src="assets/pants4hang.png" alt="Gingham Skirt" />
-    </div>
-    <div class="pantshang">
-      <img src="assets/pants5hang.png" alt="Blue Jeans" />
-    </div>
-  </div>
-  <div class="shoebuttons">
-    <div class="shoerack">
-      <img src="assets/shoes1.png" alt="Brown Boots" />
-    </div>
-    <div class="shoerack">
-      <img src="assets/shoes2.png" alt="Brown Loafers" />
-    </div>
-    <div class="shoerack">
-      <img src="assets/shoes3.png" alt="Black Sneakers" />
-    </div>
-  </div>
+      <div
+        class="shirthang"
+        draggable="true"
+        data-item="shirt"
+        data-image="assets/shirt2.png"
+      >
+        <img src="assets/shirt2hang.png" alt="Black Mesh Shirt" />
+      </div>
 
+      <div
+        class="shirthang"
+        draggable="true"
+        data-item="shirt"
+        data-image="assets/shirt3.png"
+      >
+        <img src="assets/shirt3hang.png" alt="Red Shirt" />
+      </div>
+
+      <div
+        class="shirthang"
+        draggable="true"
+        data-item="shirt"
+        data-image="assets/shirt6.png"
+      >
+        <img src="assets/shirt6hang.png" alt="Red Crop" />
+      </div>
+    </div>
+
+    <div class="pantsrack">
+      <div
+        class="pantshang"
+        draggable="true"
+        data-item="pants"
+        data-image="assets/pants1.png"
+      >
+        <img src="assets/pants1hang.png" alt="Black Jeans" />
+      </div>
+
+      <div
+        class="pantshang"
+        draggable="true"
+        data-item="pants"
+        data-image="assets/pants2.png"
+      >
+        <img src="assets/pants2hang.png" alt="Striped Pants" />
+      </div>
+
+      <div
+        class="pantshang"
+        draggable="true"
+        data-item="pants"
+        data-image="assets/pants3.png"
+      >
+        <img src="assets/pants3hang.png" alt="Biker shorts" />
+      </div>
+
+      <div
+        class="pantshang"
+        draggable="true"
+        data-item="pants"
+        data-image="assets/pants4.png"
+      >
+        <img src="assets/pants4hang.png" alt="Gingham Skirt" />
+      </div>
+    </div>
+
+    <div class="shoebuttons">
+      <div
+        class="shoerack"
+        draggable="true"
+        data-item="shoes"
+        data-image="assets/shoes1.png"
+      >
+        <img src="assets/shoes1.png" alt="Brown Boots" />
+      </div>
+
+      <div
+        class="shoerack"
+        draggable="true"
+        data-item="shoes"
+        data-image="assets/shoes2.png"
+      >
+        <img src="assets/shoes2.png" alt="Brown Loafers" />
+      </div>
+
+      <div
+        class="shoerack"
+        draggable="true"
+        data-item="shoes"
+        data-image="assets/shoes3.png"
+      >
+        <img src="assets/shoes3.png" alt="Black Sneakers" />
+      </div>
+    </div>
+  </section>
   <!--main character-->
-  <div class="outfit-stack">
-    <div class="skin" id="skinbox">
-      <img src="assets/skin2.png" alt="Skin" />
+  <main>
+    <div class="outfit-stack">
+      <div class="skin" id="skinbox" draggable="false">
+        <img src="assets/skin2.png" alt="Skin" />
+      </div>
+      <div class="shoes" id="shoesbox" draggable="false">
+        <img src="assets/shoes2.png" alt="Shoes" />
+      </div>
+      <div class="pants" id="pantsbox" draggable="false">
+        <img src="assets/pants1.png" alt="Pants" />
+      </div>
+      <div class="shirt" id="shirtbox" draggable="false">
+        <img src="assets/shirt6.png" alt="Shirt" />
+      </div>
+      <div class="hair" id="hairbox" draggable="false">
+        <img src="assets/hair3.png" alt="Hair" />
+      </div>
     </div>
-    <div class="shoes" id="shoesbox">
-      <img src="assets/shoes1.png" alt="Shoes" />
-    </div>
-    <div class="pants" id="pantsbox">
-      <img src="assets/pants1.png" alt="Pants" />
-    </div>
-    <div class="shirt" id="shirtbox">
-      <img src="assets/shirt1.png" alt="Shirt" />
-    </div>
-    <div class="hair" id="hairbox">
-      <img src="assets/hair1.png" alt="Hair" />
-    </div>
-  </div>
-  <!-- hair/skin buttons-->
-
-  <div class="hairbutton"><img src="assets/hair2.png" alt="Hair" /></div>
-
-  <div class="skinbutton">
-    <div onclick="change('skin1')" class="skinswatch">
-      <img src="assets/skin1button.png" alt="Light Skin" />
-    </div>
-    <div onclick="change('skin2')" class="skinswatch">
-      <img src="assets/skin2button.png" alt="Medium Skin" />
-    </div>
-    <div onclick="change('skin3')" class="skinswatch">
-      <img src="assets/skin3button.png" alt="Dark Skin" />
-    </div>
-  </div>
-
-  <footer>footer + credits</footer>
+  </main>
 </html>
