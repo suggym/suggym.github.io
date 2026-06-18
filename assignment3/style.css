@@ -45,7 +45,8 @@
   personality without making it too distracting.
 
   I am pretty sure the shoes don't work because I messed up the hitbox spacing due to their being too much 
-  transparent space in the png but they work in theory I swear :,) And they have a slightly different animation to match the shopes npot being on an actual rack.
+  transparent space in the png but they work in theory I swear :,) And they have a slightly different animation 
+  to match the shopes npot being on an actual rack.
 
   I ended up deleting the skin and hair options due to time constraint.
 */
@@ -205,6 +206,27 @@ section {
   cursor: grabbing;
   animation: pullOffRack 0.25s ease forwards;
 }
+
+/*
+  I added these animations because I didn’t want the clothes to feel like plain buttons.
+  Since the whole idea is a digital closet, I wanted the user to get the feeling of actually
+  picking something up from a rack.
+
+  The hover movement is meant to show that the item can be interacted with. It lifts and tilts
+  slightly, which makes it feel like you're checking out the item of clothing before picking it. The shadow
+  also helps the clothing look like it is coming forward from the background.
+
+  The pulling animation is there to make the drag feel less instant. Clothes do not usually come
+  perfectly off a rack in one smooth movement, so I tried to give it a tiny bit of resistance. 
+  I'm not 100% hapy with how it looks but a future development could be refining the keyframe 
+  animation to make it so the resistance is a bit more realistic. It moves a little, then shifts 
+  again, which makes it feel more like the item is being tugged off the hanger.
+
+  I kept the animation small because the clothes already overlap on the rack. If the movement was
+  too big, it would be harder to use and the layout would start looking messy and less realistic. 
+  This way it still feels playful like the small animations reference in unpacking (game), but 
+  the user can clearly see what they are dragging.
+*/
 
 @keyframes pullOffRack {
   0% {

@@ -13,8 +13,8 @@ const clothingItems = document.querySelectorAll(
 /*
   The drop function is the main/only logic of the dress-up game. When the player drops an item onto the outfit stack,
   the code checks what type of item it is and changes the matching character layer. Shirts change the shirt image,
-  pants change the pants image, and shoes change the shoes image. This logic was based of the card drag and drop from week 9 
-  with some debugging help from ChatGPT when I had try and adapt it for many different assets.
+  pants change the pants image, and shoes change the shoes image. This logic was based of the card drag and drop from 
+  week 9(?) with some debugging help from ChatGPT when I had try and adapt it for many different assets.
 
   I used one shared drop function instead of separate drop zones because it makes the game simpler to add assets to.
   They can drag any clothing item onto the character, and the code works out which layer should update. This also makes

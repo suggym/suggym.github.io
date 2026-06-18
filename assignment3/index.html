@@ -16,14 +16,19 @@
   </head>
   <header><h1>your digital closet</h1></header>
   <!-- 
-  The clothing racks are separate from the character because I wanted the page to feel like a dress-up game with a somewhat real closet. Unfortunately I did not have enough time to create the rack asset but in a future development I would create that in the background to add an extra level of immersion. Each clothing item is draggable so the user has to physically move the item onto
-  the character, which makes the interaction feel more playful and closer to pulling clothes from a real closet.
+  The clothing racks are separate from the character because I wanted the page to feel like a dress-up game with 
+  a somewhat real closet. Unfortunately I did not have enough time to create the rack asset but in a future 
+  development I would create that in the background to add an extra level of immersion. Each clothing item is 
+  draggable so the user has to physically move the item onto the character, which makes the interaction feel 
+  more playful and closer to pulling clothes from a real closet.
 
   I used data attributes on the draggable items because it keeps the HTML and JavaScript connected in a simple way.
   The data-item tells the code whether the dragged object is a shirt, pants, or shoes, while data-image tells
-  the code which final outfit image should appear on the character so I create create "hanging" assets as well as the normal character assets. This means I do not need a separate function for
-  every single clothing option. The same drag-and-drop code works across all categories.
+  the code which final outfit image should appear on the character so I create create "hanging" assets as well 
+  as the normal character assets. This means I do not need a separate function for every single clothing option. 
+  The same drag-and-drop code works across all categories.
 -->
+
   <!--rack-->
   <section>
     <div class="shirtrack">
@@ -131,7 +136,8 @@
       </div>
     </div>
   </section>
-  <!--main character-->
+  <!--main character: outfit stack uses transparent space to allow them allow to sit 
+  on top of eachother without having to do too much finicky positioning in CSS.-->
   <main>
     <div class="outfit-stack">
       <div class="skin" id="skinbox" draggable="false">
